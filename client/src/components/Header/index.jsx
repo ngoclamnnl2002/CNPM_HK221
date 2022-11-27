@@ -7,7 +7,7 @@ import logo from "../../assets/logo.png";
 import messageIcon from "../../assets/icons/message.png";
 import ringIcon from "../../assets/icons/ring.png";
 import avatar from "../../assets/icons/avatar.png";
-import menuIcon from "../../assets/icons/menu.png";
+import searchIcon from "../../assets/icons/search.png";
 import style from "./style.module.scss";
 
 const Header = () => {
@@ -39,7 +39,7 @@ const Header = () => {
               <li>
                 <div className={style.headerListIconItem}>
                   <img
-                    src={messageIcon}
+                    src={searchIcon}
                     alt="Icon"
                     style={{ width: "100%", height: "100%" }}
                   />
@@ -57,7 +57,7 @@ const Header = () => {
               <li>
                 <div className={style.headerListIconItem}>
                   <img
-                    src={avatar}
+                    src={messageIcon}
                     alt="Icon"
                     style={{ width: "100%", height: "100%" }}
                   />
@@ -65,18 +65,23 @@ const Header = () => {
               </li>
               <Dropdown>
                 <Dropdown.Toggle
-                  align="start"
                   as="div"
-                  bsPrefix="dropdownButton"
                   value="transparent"
                   id="dropdown-basic-button"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
                 >
-                  <div style={{ width: "27.63px", height: "32.61px" }}>
-                    <img
-                      src={menuIcon}
-                      alt="Icon"
-                      style={{ width: "100%", height: "100%" }}
-                    />
+                  <div
+                    style={{
+                      width: "28px",
+                      height: "28px",
+                      marginRight: "3px",
+                    }}
+                  >
+                    <img src={avatar} alt="Icon" />
                   </div>
                 </Dropdown.Toggle>
                 <Dropdown.Menu className={style.menuDropdown}>

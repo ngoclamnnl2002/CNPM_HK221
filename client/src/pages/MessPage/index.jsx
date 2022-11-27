@@ -1,11 +1,11 @@
 import Header from "../../components/Header";
 
-const Test = () => {
+const MessPage = () => {
     return (
         <>
-        <Header />
+           <Header />
         </>
     )
 }
 
-export default Test;
+export default MessPage;
