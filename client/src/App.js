@@ -9,6 +9,7 @@ function App() {
       <Route path="/" element={<HomePage />}/>
       <Route path="/dang-nhap" element={<LoginPage />}/>
       <Route path="/tin-nhan" element={<MessPage />}/>
+      <Route path="/tin-nhan" element={<MessPage />}/>
     </Routes>
   );
 }
