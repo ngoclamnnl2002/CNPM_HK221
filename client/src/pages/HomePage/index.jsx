@@ -6,19 +6,14 @@ import Form from "react-bootstrap/Form";
 import Header from "../../components/Header";
 import banner from "../../assets/banner.png";
 import avatar from "../../assets/icons/avatar.png";
+import Banner from "../../components/Banner";
 import style from "./style.module.scss";
 
 const HomePage = () => {
   return (
     <div style={{ backgroundColor: "#F8F9FA" }}>
       <Header />
-      <div className={style.banner}>
-        <img
-          src={banner}
-          alt="banner"
-          style={{ height: "100%", width: "100%" }}
-        />
-      </div>
+      <Banner image={banner} alt="banner"/>
       <Container className={style.body}>
         <Row>
           <Col lg={4}>
