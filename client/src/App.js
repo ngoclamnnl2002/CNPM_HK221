@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import MessPage from "./pages/MessPage";
+import UserInfoPage from "./pages/UserInfoPage";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />}/>
       <Route path="/dang-nhap" element={<LoginPage />}/>
-      <Route path="/tin-nhan" element={<MessPage />}/>
+      <Route path="/thong-tin-ca-nhan" element={<UserInfoPage />}/>
     </Routes>
   );
 }
