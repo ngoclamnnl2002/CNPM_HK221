@@ -9,6 +9,7 @@
 - reactJS
 - react-bootstrap
 - react-router-dom
+- react-calendar
 - sass
 - redux
 - axios

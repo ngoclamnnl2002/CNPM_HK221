@@ -3,6 +3,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import 'react-calendar/dist/Calendar.css';
+import Calendar from 'react-calendar';
+import { useState } from "react";
 import Header from "../../components/Header";
 import banner from "../../assets/banner.png";
 import avatar from "../../assets/icons/avatar.png";
@@ -10,6 +13,8 @@ import Banner from "../../components/Banner";
 import style from "./style.module.scss";
 
 const HomePage = () => {
+  const [value, onChange] = useState(new Date());
+
   return (
     <div style={{ backgroundColor: "#F8F9FA" }}>
       <Header />
@@ -134,7 +139,9 @@ const HomePage = () => {
               </Col>
             </Row>
           </Col>
-          <Col lg={8}>lam</Col>
+          <Col lg={8}>
+          <Calendar onChange={onChange} value={value} minDate={new Date(2020, 0, 1)} maxDate={new Date(2024, 12, 0)}/>
+          </Col>
         </Row>
       </Container>
     </div>
