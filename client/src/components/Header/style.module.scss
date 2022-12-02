@@ -1,6 +1,10 @@
 .header {
   height: 60px;
   background-color: #beffa7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   .headerList {
     list-style: none;
     margin: 0;
