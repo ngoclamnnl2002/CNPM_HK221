@@ -5,7 +5,8 @@ import Header from "../../../components/Header";
 import Container from "react-bootstrap/esm/Container";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
-import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
+import Calendar from "react-calendar";
+import 'react-calendar/dist/Calendar.css';
 import { Link } from 'react-router-dom';
 
 function MyComponent() {
@@ -48,13 +49,10 @@ function tasktable(taskname,time,assign){
 
 
 
-function Calendars(){
-    return (
-            <CalendarComponent>
-            </CalendarComponent>
-        
-    );
-}
+function Calendars() {
+    const [value, onChange] = useState(new Date());
+    return <Calendar onChange={onChange} value={value} minDate={new Date(2020, 0, 1)} maxDate={new Date(2024, 12, 0)}/>;
+  }
 
 function WorkDetail(endtime,area,from_location,to_location,detail){
     return (

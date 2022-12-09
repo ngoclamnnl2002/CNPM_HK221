@@ -1,9 +1,7 @@
-.banner {
-  height: 300px;
-}
 .body {
   background-color: #fff;
-  margin-top: 30px;
+  margin: 30px auto;
+  padding-bottom: 20px;
   .bodyInfo {
     display: flex;
     height: auto;
@@ -29,6 +27,22 @@
     }
   }
   .bodyCreate {
-    
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin-top: 10px;
+    .bodyCreateTitle {
+      background-color: #2ecc14;
+      height: 40px;
+      border-radius: 20px;
+      font-family: "Faustina";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000000;
+      margin-bottom: 15px;
+    }
   }
 }
