@@ -5,7 +5,7 @@ import { Header } from "../../../components/Header";
 import Container from "react-bootstrap/esm/Container";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
-import React, { useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { Link } from "react-router-dom";
@@ -15,12 +15,12 @@ function MyComponent() {
     <Container className={style.buttoncontainer}>
       <Row>
         <Col className={style.button}>
-          <Link to="/myworkpagecollector">
+          <Link to="/cong-viec-collector">
             <button className={style.nonactivebutton}>Collector</button>
           </Link>
         </Col>
         <Col className={style.button}>
-          <Link to="/myworkpagejanitor">
+          <Link to="/cong-viec-janitor">
             <button className={style.activebutton}>Janitor</button>
           </Link>
         </Col>
@@ -38,18 +38,6 @@ function tasktable(taskname, time, assign) {
         <Col className={style.task_assign}>Đã giao cho {assign}</Col>
       </Row>
     </Container>
-  );
-}
-
-function Calendars() {
-  const [value, onChange] = useState(new Date());
-  return (
-    <Calendar
-      onChange={onChange}
-      value={value}
-      minDate={new Date(2020, 0, 1)}
-      maxDate={new Date(2024, 12, 0)}
-    />
   );
 }
 
@@ -80,6 +68,7 @@ function WorkDetail(endtime, area, from_location, to_location, detail) {
 }
 
 const MyWorkPageJanitor = () => {
+  const [value, onChange] = useState(new Date());
   return (
     <div>
       <Header />
