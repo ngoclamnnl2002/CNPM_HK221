@@ -80,6 +80,7 @@ function WorkDetail(endtime, area, from_location, to_location, detail) {
 }
 
 const MyWorkPageJanitor = () => {
+    const [value, onChange] = useState(new Date());
   return (
     <div>
       <Header />

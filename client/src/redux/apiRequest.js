@@ -1,5 +1,12 @@
 import axios from "axios";
-import { loginFail, loginStart, loginSuccess } from "./loginSlice";
+import {
+  loginFail,
+  loginStart,
+  loginSuccess,
+  getCurrentFail,
+  getCurrentStart,
+  getCurrentSuccess,
+} from "./loginSlice";
 
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
@@ -12,5 +19,17 @@ export const loginUser = async (user, dispatch, navigate) => {
     }
   } catch (error) {
     dispatch(loginFail());
+  }
+};
+
+export const getAccounts = async (accessToken, dispatch) => {
+  dispatch(getCurrentStart());
+  try {
+    const response = await axios.get("http://localhost:8000/homepage", {
+      headers: { token: `Bearer ${accessToken}` },
+    });
+    dispatch(getCurrentSuccess(response.data));
+  } catch (error) {
+    dispatch(getCurrentFail());
   }
 };
