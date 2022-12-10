@@ -12,12 +12,12 @@ function MyComponent() {
     <Container className={style.buttoncontainer}>
       <Row>
         <Col className={style.button}>
-          <Link to="/myworkpagecollector">
+          <Link to="/cong-viec">
             <button className={style.activebutton}>Collector</button>
           </Link>
         </Col>
         <Col className={style.button}>
-          <Link to="/myworkpagejanitor">
+          <Link to="/cong-viecs">
             <button className={style.nonactivebutton}>Janitor</button>
           </Link>
         </Col>
