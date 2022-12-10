@@ -90,7 +90,7 @@ export const Header = () => {
             <Nav.Link href="/trang-chu" className={styles.headerLink}>
               Trang chủ
             </Nav.Link>
-            <Nav.Link href="/cong-viec" className={styles.headerLink}>
+            <Nav.Link href="/cong-viec-collector" className={styles.headerLink}>
               Trang của tôi
             </Nav.Link>
           </Nav>
