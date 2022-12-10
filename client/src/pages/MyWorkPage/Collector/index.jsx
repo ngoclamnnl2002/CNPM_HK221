@@ -1,10 +1,12 @@
 import "../../MyWorkPage/style.module.scss";
 import style from "../../MyWorkPage/style.module.scss";
-import {Header} from "../../../components/Header";
+import { Header } from "../../../components/Header";
 import Container from "react-bootstrap/esm/Container";
 import Col from "react-bootstrap/esm/Col";
+import React, { useState } from "react";
 import Row from "react-bootstrap/esm/Row";
-import 'react-calendar/dist/Calendar.css';
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 import { Link } from "react-router-dom";
 
 function MyComponent() {
@@ -65,13 +67,15 @@ function WorkDetail(endtime, area, from_location, to_location, detail) {
   );
 }
 
+
+
 const MyWorkPageCollector = () => {
+  const [value, onChange] = useState(new Date());
   return (
     <div>
       <Header />
       <Container className={style.container_body}>
         <Row>
-          
           <Col sm>
             <Container className={style.task_table}>
               <Row className={style.title}>Công Việc Đã Giao</Row>
@@ -107,6 +111,14 @@ const MyWorkPageCollector = () => {
                 )}
               </Row>
             </Container>
+          </Col>
+          <Col lg={4}>
+            <Calendar
+              onChange={onChange}
+              value={value}
+              minDate={new Date(2020, 0, 1)}
+              maxDate={new Date(2024, 12, 0)}
+            />
           </Col>
         </Row>
       </Container>
