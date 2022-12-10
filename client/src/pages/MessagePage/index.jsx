@@ -8,9 +8,10 @@ import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
-import Header from "../../components/Header";
+import {Header} from "../../components/Header";
 import Contacts from "../../components/Contacts";
 import styles from "./style.module.scss";
+import { Link } from "react-router-dom";
 
 //Generate my message
 function myMessage(messages = []) {
@@ -61,7 +62,11 @@ const MessagePage = () => {
   return (
     <div>
       <Header />
-      <Container fluid style={{ marginTop: "60px" }}>
+      <Container
+        fluid
+        style={{ marginTop: "60px" }}
+        className={styles.desktopMes}
+      >
         <div className={styles.title}>Chat</div>
         <Row>
           <Col
@@ -69,7 +74,10 @@ const MessagePage = () => {
             className="border-end border-1 border-dark"
             style={{ backgroundColor: "#F8F9FA" }}
           >
-            <Form.Control placeholder="Tìm kiếm" className="mb-3" />
+            <Form.Control
+              placeholder="Tìm kiếm"
+              className={[styles.searchInput, "mb-3"]}
+            />
             {/* Prefab for Contacts */}
             <div className={styles.listContacts}>
               <Contacts
@@ -236,18 +244,18 @@ const MessagePage = () => {
               {myMessage(["aaaaa", "aaaaa"])}
             </Container>
             <Row className={styles.functionBar}>
-              <Col sm={2} className={styles.icon}>
+              <Col lg={2} className={styles.icon}>
                 <AddCircleSharpIcon sx={{ fontSize: 40 }} />
                 <ImageOutlinedIcon sx={{ fontSize: 40 }} />
                 <InsertDriveFileIcon sx={{ fontSize: 40 }} />
               </Col>
-              <Col>
+              <Col lg={10}>
                 <Form.Group>
                   <Row>
                     <Col>
                       <Form.Control placeholder="Enter message"></Form.Control>
                     </Col>
-                    <Col sm={1}>
+                    <Col lg={1}>
                       <PlayCircleIcon
                         sx={{ fontSize: 40 }}
                         type="submit"
@@ -258,6 +266,51 @@ const MessagePage = () => {
                 </Form.Group>
               </Col>
             </Row>
+          </Col>
+        </Row>
+      </Container>
+      <Container
+        fluid
+        style={{ marginTop: "60px" }}
+        className={styles.mobileMes}
+      >
+        <Row>
+          <Col
+            lg={12}
+            className="border-end border-1 border-dark"
+            style={{ backgroundColor: "#F8F9FA" }}
+          >
+            <Form.Control
+              placeholder="Tìm kiếm"
+              className={[styles.searchInput, "mb-3"]}
+            />
+            {/* Prefab for Contacts */}
+            <div className={styles.listContacts}>
+              <Link to={`/tin-nhan/Nguyen-Thanh-Vin`} style={{textDecoration: 'none', color: 'black'}}>
+                <Contacts
+                  urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
+                  name="Nguyen Thanh Vin"
+                  lastMessage="aaaaaa"
+                  time="5"
+                />
+              </Link>
+              <Link to={`/tin-nhan/Nguyen-Thanh-Vin`} style={{textDecoration: 'none', color: 'black'}}>
+                <Contacts
+                  urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
+                  name="Nguyen Thanh Vin"
+                  lastMessage="aaaaaa"
+                  time="5"
+                />
+              </Link><Link to={`/tin-nhan/Nguyen-Thanh-Vin`} style={{textDecoration: 'none', color: 'black'}}>
+                <Contacts
+                  urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
+                  name="Nguyen Thanh Vin"
+                  lastMessage="aaaaaa"
+                  time="5"
+                />
+              </Link>
+            </div>
+            {/* Prefab for Contacts */}
           </Col>
         </Row>
       </Container>

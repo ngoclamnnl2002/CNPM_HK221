@@ -1,6 +1,6 @@
 import "../../MyWorkPage/style.module.scss";
 import style from "../../MyWorkPage/style.module.scss";
-import Header from "../../../components/Header";
+import {Header} from "../../../components/Header";
 import Container from "react-bootstrap/esm/Container";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";

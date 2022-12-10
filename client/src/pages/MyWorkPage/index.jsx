@@ -6,7 +6,7 @@ import Row from "react-bootstrap/esm/Row";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import styles from "./styles.module.scss";
-import Header from "../../components/Header";
+import {Header} from "../../components/Header";
 
 const MyWorkPage = () => {
   const [value, onChange] = useState(new Date());

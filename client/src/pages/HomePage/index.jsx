@@ -4,7 +4,8 @@ import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import GoogleMapReact from "google-map-react";
-import Header from "../../components/Header";
+import { useSelector } from "react-redux";
+import { Header, HeaderOfJanitor } from "../../components/Header";
 import banner from "../../assets/banner.png";
 import avatar from "../../assets/icons/avatar.png";
 import Banner from "../../components/Banner";
@@ -15,6 +16,9 @@ import style from "./style.module.scss";
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const HomePage = () => {
+  const checkTypeAccount = useSelector(
+    (state) => state.login.login?.currentUser.user.typeAccount
+  );
   const defaultProps = {
     center: {
       lat: 10.772138889167048,
@@ -24,7 +28,7 @@ const HomePage = () => {
   };
   return (
     <div style={{ backgroundColor: "#F8F9FA", paddingBottom: "20px" }}>
-      <Header />
+      {checkTypeAccount === 0 ? <Header /> : <HeaderOfJanitor /> }
 
       <Banner image={banner} alt="banner" />
 

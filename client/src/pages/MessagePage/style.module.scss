@@ -1,3 +1,6 @@
+.mobileMes {
+  display: none;
+}
 .title {
   flex: 100%;
   font-family: "Faustina";
@@ -115,4 +118,19 @@
 
 .formButton:hover {
   background-color: red;
+}
+
+@media all and (max-width: 739px) {
+  .desktopMes {
+    display: none;
+  }
+  .mobileMes {
+    display: block;
+  }
+  .title {
+    display: none;
+  }
+  .searchInput {
+    margin-top: 25px;
+  }
 }

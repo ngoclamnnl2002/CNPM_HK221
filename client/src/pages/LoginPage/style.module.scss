@@ -1,32 +1,19 @@
 .login {
-  margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   text-align: center;
-  .loginLogo {
-    position: fixed;
-    top: 37px;
-    left: 67px;
-    width: 79.1px;
-    height: 82.08px;
-  }
   .loginTitle {
-    width: 238px;
-    height: 82px;
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
     font-size: 54px;
-    line-height: 73px;
     color: #fff;
     margin-bottom: 54px;
   }
   .loginForm {
     .loginFormItem {
       height: 60px;
-      width: 568px;
       .loginFormItemFill {
         outline: none !important;
         box-shadow: none !important;
@@ -42,14 +29,16 @@
         color: rgba(0, 0, 0, 0.5);
       }
     }
-    .loginFormForgot {
+    .loginForgot {
       text-align: right;
       font-family: "Inter";
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
-      line-height: 24px;
-      color: #73fa70;
+      .loginForgotLink {
+        text-decoration: none;
+        color: #73fa70;
+      }
     }
     .loginFormCheck {
       text-align: left;
@@ -58,7 +47,6 @@
       font-style: normal;
       font-weight: 400;
       font-size: 20px;
-      line-height: 24px;
       color: #fff;
     }
     .loginFormBtn {
