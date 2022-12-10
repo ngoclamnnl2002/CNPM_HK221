@@ -69,9 +69,13 @@ function WorkDetail(endtime, area, from_location, to_location, detail) {
 
 const MyWorkPageJanitor = () => {
   const [value, onChange] = useState(new Date());
+  var uesrInfo = {
+    fullname: localStorage.getItem("fullname"),
+    image: localStorage.getItem("image"),
+  };
   return (
     <div>
-      <Header />
+      <Header image={uesrInfo.image}/>
       <Container className={style.container_body}>
         <Row>
           <Col sm>

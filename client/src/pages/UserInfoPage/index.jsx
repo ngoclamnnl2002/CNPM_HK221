@@ -1,20 +1,20 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import { useSelector } from "react-redux";
 import Col from "react-bootstrap/Col";
 import { Header, HeaderOfJanitor } from "../../components/Header";
 import Banner from "../../components/Banner";
 import coverImage from "../../assets/userInfo/coverImage.png";
-import avatarImage from "../../assets/userInfo/avatarImage.png";
 import styles from "./style.module.scss";
 
 const UserInfoPage = () => {
-  const checkTypeAccount = useSelector(
-    (state) => state.login.login?.currentUser.user.typeAccount
-  );
+  var typeAccount = parseInt(localStorage.getItem("typeAccount"));
+  var uesrInfo = {
+    fullname: localStorage.getItem("fullname"),
+    image: localStorage.getItem("image"),
+  };
   return (
     <div style={{ backgroundColor: "#fff", height: "100vh" }}>
-      {checkTypeAccount === 0 ? <Header /> : <HeaderOfJanitor />}
+      {typeAccount === 0 ? <Header image={uesrInfo.image}/> : <HeaderOfJanitor />}
       <Banner image={coverImage} alt="coverImage" />
       <Container className={styles.body}>
         <Row>
@@ -22,12 +22,12 @@ const UserInfoPage = () => {
             <div className={styles.bodyInfoTop}>
               <div className={styles.bodyInfoTopImg}>
                 <img
-                  src={avatarImage}
+                  src={uesrInfo.image}
                   alt="avatarImage"
-                  style={{ height: "100%", width: "100%" }}
+                  style={{ height: "100%", width: "100%", borderRadius: "50%" }}
                 />
               </div>
-              <p>Pham Trong Son</p>
+              <p>{uesrInfo.fullname}</p>
             </div>
             <div className={styles.bodyInfoBottom}>
               <p>Chức vụ: Back officer</p>

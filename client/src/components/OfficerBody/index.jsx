@@ -4,14 +4,16 @@ import Col from "react-bootstrap/Col";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import GoogleMapReact from "google-map-react";
-import avatar from "../../assets/icons/avatar.png";
 import FormOfCollector from "../../components/FormOfCollector";
 import FormOfJanitor from "../../components/FormOfJanitor";
 import style from "./styles.module.scss";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-const OfficerBody = () => {
+const OfficerBody = (props) => {
+
+  const {fullname, image} = props;
+
   const defaultProps = {
     center: {
       lat: 10.772138889167048,
@@ -27,13 +29,13 @@ const OfficerBody = () => {
           <div className={style.bodyInfo}>
             <div className={style.bodyInfoAvatar}>
               <img
-                src={avatar}
+                src={image}
                 alt="avatar"
-                style={{ width: "100%", height: "100%" }}
+                style={{ width: "100%", height: "100%", borderRadius: '50px' }}
               />
             </div>
             <div className={style.bodyInfoName}>
-              <p>Phạm Trọng Sơn</p>
+              <p>{fullname}</p>
               <p>
                 <b>Chức vụ:</b> officer
               </p>

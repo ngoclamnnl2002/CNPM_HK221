@@ -6,8 +6,6 @@ import MessagePage from "./pages/MessagePage";
 import MyWorkPageCollector from "./pages/MyWorkPage/Collector"
 import MyWorkPageJanitor from "./pages/MyWorkPage/Janitor"
 import ContentMessage from "./pages/ContentMessage";
-import JanitorHomePage from "./pages/JanitorHomePage";
-import JanitorDetailPage from "./pages/JanitorDetailPage";
 
 function App() {
   return (
@@ -19,8 +17,6 @@ function App() {
       <Route path="/cong-viec-collector" element={<MyWorkPageCollector />}/>
       <Route path="/cong-viec-janitor" element={<MyWorkPageJanitor />}/>
       <Route path="/tin-nhan/Nguyen-Thanh-Vin" element={<ContentMessage />}/>
-      <Route path="/janitor/trang-chu" element={<JanitorHomePage />}/>
-      <Route path="/janitor/chi-tiet-cong-viec" element={<JanitorDetailPage />}/>
     </Routes>
   );
 }

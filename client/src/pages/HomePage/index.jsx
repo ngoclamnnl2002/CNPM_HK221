@@ -1,7 +1,5 @@
-import { useSelector } from "react-redux";
 import { Header, HeaderOfJanitor } from "../../components/Header";
 import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import EmployeeBody from "../../components/EmployeeBody";
 import OfficerBody from "../../components/OfficerBody";
@@ -16,17 +14,19 @@ const HomePage = () => {
     }
   });
 
-  const checkTypeAccount = useSelector(
-    (state) => state.login.login?.currentUser.user.typeAccount
-  );
+  var uesrInfo = {
+    typeAccount: parseInt(localStorage.getItem("typeAccount")),
+    fullname: localStorage.getItem("fullname"),
+    image: localStorage.getItem("image"),
+  };
 
   return (
     <div style={{ backgroundColor: "#F8F9FA", paddingBottom: "20px" }}>
-      {checkTypeAccount === 0 ? <Header /> : <HeaderOfJanitor />}
+      {uesrInfo.typeAccount === 0 ? <Header image={uesrInfo.image}/> : <HeaderOfJanitor />}
 
       <Banner image={banner} alt="banner" />
 
-      {checkTypeAccount === 0 ? <OfficerBody /> : <EmployeeBody />}
+      {uesrInfo.typeAccount === 0 ? <OfficerBody fullname={uesrInfo.fullname} image={uesrInfo.image}/> : <EmployeeBody />}
     </div>
   );
 };

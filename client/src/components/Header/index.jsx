@@ -5,7 +5,6 @@ import Navbar from "react-bootstrap/Navbar";
 import logo from "../../assets/logo.png";
 import messageIcon from "../../assets/icons/message.png";
 import ringIcon from "../../assets/icons/ring.png";
-import avatar from "../../assets/icons/avatar.png";
 import styles from "./styles.module.scss";
 
 export const HeaderOfJanitor = () => {
@@ -67,7 +66,8 @@ export const HeaderOfJanitor = () => {
   );
 };
 
-export const Header = () => {
+export const Header = (props) => {
+  const { image } = props;
   return (
     <Navbar expand="lg" fixed="top" collapseOnSelect className={styles.header}>
       <Container>
@@ -127,7 +127,7 @@ export const Header = () => {
                     marginRight: "3px",
                   }}
                 >
-                  <img src={avatar} alt="Icon" />
+                  <img src={image} alt="Icon" style={{height: '100%', width: '100%', borderRadius: '50px'}}/>
                 </div>
               </Dropdown.Toggle>
               <Dropdown.Menu className={styles.menuDropdown}>

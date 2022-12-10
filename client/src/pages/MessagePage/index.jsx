@@ -8,9 +8,11 @@ import AddCircleSharpIcon from "@mui/icons-material/AddCircleSharp";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
-import {Header} from "../../components/Header";
+import { Header, HeaderOfJanitor } from "../../components/Header";
 import Contacts from "../../components/Contacts";
 import styles from "./style.module.scss";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 //Generate my message
@@ -59,9 +61,62 @@ function timeLine(time) {
 
 //main message page
 const MessagePage = () => {
+  const contactsMember = [
+    {
+      urlAvatar:
+        "http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg",
+      name: "Nguyen Thanh Vinh",
+      lastMessage: "okkkk",
+      time: "5",
+    },
+    {
+      urlAvatar:
+        "http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-25.jpg",
+      name: "Nguyen Thanh B",
+      lastMessage: "mai di choi ko",
+      time: "17",
+    },
+    {
+      urlAvatar:
+        "https://d1hjkbq40fs2x4.cloudfront.net/2016-01-31/files/1045.jpg",
+      name: "Nguyen Thanh A",
+      lastMessage: "lalalalala",
+      time: "10",
+    },
+    {
+      urlAvatar:
+        "https://icdn.24h.com.vn/upload/2-2022/images/2022-05-25/2-1653445668-926-width740height481.jpg",
+      name: "Nguyen Thanh C",
+      lastMessage: "ackbsncjac",
+      time: "2",
+    },
+    {
+      urlAvatar: "https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg",
+      name: "Nguyen Thanh Vin",
+      lastMessage: "lacbkjcdscd",
+      time: "5",
+    },
+  ];
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("accessToken")) {
+      navigate("/");
+    }
+  });
+
+  var uesrInfo = {
+    typeAccount: parseInt(localStorage.getItem("typeAccount")),
+    fullname: localStorage.getItem("fullname"),
+    image: localStorage.getItem("image"),
+  };
   return (
     <div>
-      <Header />
+      {uesrInfo.typeAccount === 0 ? (
+        <Header image={uesrInfo.image} />
+      ) : (
+        <HeaderOfJanitor />
+      )}
+
       <Container
         fluid
         style={{ marginTop: "60px" }}
@@ -80,66 +135,14 @@ const MessagePage = () => {
             />
             {/* Prefab for Contacts */}
             <div className={styles.listContacts}>
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
-              <Contacts
-                urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                name="Nguyen Thanh Vin"
-                lastMessage="aaaaaa"
-                time="5"
-              />
+              {contactsMember.map((item, index) => (
+                <Contacts
+                  urlAvatar={item.urlAvatar}
+                  name={item.name}
+                  lastMessage={item.lastMessage}
+                  time={item.time}
+                />
+              ))}
             </div>
             {/* Prefab for Contacts */}
           </Col>
@@ -286,29 +289,16 @@ const MessagePage = () => {
             />
             {/* Prefab for Contacts */}
             <div className={styles.listContacts}>
-              <Link to={`/tin-nhan/Nguyen-Thanh-Vin`} style={{textDecoration: 'none', color: 'black'}}>
-                <Contacts
-                  urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                  name="Nguyen Thanh Vin"
-                  lastMessage="aaaaaa"
-                  time="5"
-                />
-              </Link>
-              <Link to={`/tin-nhan/Nguyen-Thanh-Vin`} style={{textDecoration: 'none', color: 'black'}}>
-                <Contacts
-                  urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                  name="Nguyen Thanh Vin"
-                  lastMessage="aaaaaa"
-                  time="5"
-                />
-              </Link><Link to={`/tin-nhan/Nguyen-Thanh-Vin`} style={{textDecoration: 'none', color: 'black'}}>
-                <Contacts
-                  urlAvatar="http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg"
-                  name="Nguyen Thanh Vin"
-                  lastMessage="aaaaaa"
-                  time="5"
-                />
-              </Link>
+              {contactsMember.map((item, index) => (
+                <Link to="/tin-nhan/Nguyen-Thanh-Vin" style={{textDecoration: 'none', color: 'black'}}>
+                  <Contacts
+                    urlAvatar={item.urlAvatar}
+                    name={item.name}
+                    lastMessage={item.lastMessage}
+                    time={item.time}
+                  />
+                </Link>
+              ))}
             </div>
             {/* Prefab for Contacts */}
           </Col>
