@@ -1,16 +1,20 @@
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { useSelector } from "react-redux";
 import Col from "react-bootstrap/Col";
-import {Header} from "../../components/Header";
+import { Header, HeaderOfJanitor } from "../../components/Header";
 import Banner from "../../components/Banner";
 import coverImage from "../../assets/userInfo/coverImage.png";
 import avatarImage from "../../assets/userInfo/avatarImage.png";
 import styles from "./style.module.scss";
 
 const UserInfoPage = () => {
+  const checkTypeAccount = useSelector(
+    (state) => state.login.login?.currentUser.user.typeAccount
+  );
   return (
-    <div style={{ backgroundColor: "#fff", height: '100vh' }}>
-      <Header />
+    <div style={{ backgroundColor: "#fff", height: "100vh" }}>
+      {checkTypeAccount === 0 ? <Header /> : <HeaderOfJanitor />}
       <Banner image={coverImage} alt="coverImage" />
       <Container className={styles.body}>
         <Row>
